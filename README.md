@@ -71,8 +71,8 @@
   onNormalized:null, //模态框已经标准化（并且同时在动画效果完成）之后被触发<br>
   };</p>
 <p><b>模态窗对外提供了7个方法：</b>  </p>
-<p>sm.show() //获取源码<br> 
-  sm.hide() //设置源码
+<p>sm.show() //显示<br> 
+  sm.hide() //隐藏
     <br>
   sm.min(true) //最小化
   <br>
