@@ -1,4 +1,13 @@
-﻿<h2># demo-supermodal</h2>
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<h2># demo-supermodal</h2>
 <p>模态窗 supermodal v2.0</p>
 <p>以 Bootstrap 为皮肤，基于jquery，最低支持IE8</p>
 <p><b>supermodal v2.0 演示地址：</b><a href="http://gongshunkai.github.io/demo/%E6%A8%A1%E6%80%81%E7%AA%97/demo-2.html">http://gongshunkai.github.io/demo/%E6%A8%A1%E6%80%81%E7%AA%97/demo-2.html</a></p>
@@ -72,45 +81,89 @@
   };</p>
 <p><b>模态窗对外提供了7个方法：</b></p>
 <p>sm.show({<br>
-  model:'modal-lightbox',<br>
-  title:'图片1',<br>
-  param:{<br>
-  &nbsp;&nbsp;'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg',<br>
-  &nbsp;&nbsp;'onRequestReady':function(){<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;console.log('lightbox准备');<br>
-  &nbsp;&nbsp;},<br>
-    'onRequestComplete':function(){<br>
-      console.log('lightbox完成');<br>
-    }<br>
-  },<br>
-  lightbox:{<br>
-    'group':[<br>
-      {'url':'https://img.alicdn.com/imgextra/i3/2180723028/<br>TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg','title':'图片1'},<br>
-      {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>TB20UQIaFXXXXc5XXXXXXXXXXXX_!!2180723028.jpg','title':'图片2'},<br>
-      {'url':'https://img.alicdn.com/imgextra/i3/2180723028/<br>TB2sKsIaFXXXXXrXpXXXXXXXXXX_!!2180723028.jpg','title':'图片3'},<br>
-      {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>TB2f9UGaFXXXXXVXpXXXXXXXXXX_!!2180723028.jpg','title':'图片4'},<br>
-      {'url':'https://img.alicdn.com/imgextra/i4/2180723028/<br>TB2KT3OaFXXXXXIXXXXXXXXXXXX_!!2180723028.jpg','title':'图片5'},<br>
-      {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>TB2ImMFaFXXXXaWXpXXXXXXXXXX_!!2180723028.jpg','title':'图片6'}<br>
-    ],<br>
+&nbsp; &nbsp; model:'modal-alert',<br>
+&nbsp; &nbsp; title:'提示消息',<br>
+&nbsp; &nbsp; contents:'&lt;p&gt;这是一条提示信息！&lt;/p&gt;'<br>
+}); </p>
+<p>sm.show({<br>
+&nbsp; &nbsp; model:'modal-confirm',<br>
+&nbsp; &nbsp; title:'确认操作',<br>
+&nbsp; &nbsp; contents:'&lt;p&gt;是否确认将该商品从购物车移除？&lt;/p&gt;'<br>
+});</p>
+<p>sm.show({<br>
+&nbsp; &nbsp; model:'modal-message',<br>
+&nbsp; &nbsp; contents:'&lt;p&gt;这是一条 ' + Date() + ' 的消息&lt;/p&gt;'<br>
+});</p>
+<p>sm.show({<br>
+&nbsp; &nbsp; model:'modal-ajax',<br>
+&nbsp; &nbsp; title:'ajax加载html',<br>
+&nbsp; &nbsp; param:{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'url':'data/goods.html',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'onRequestReady':function(){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('ajax准备');<br>
+&nbsp; &nbsp; &nbsp; &nbsp; },<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'onRequestComplete':function(){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('ajax完成');<br>
+&nbsp; &nbsp; &nbsp; &nbsp; },<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 'onError':function(){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('ajax错误');<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; }<br>
+});</p>
+<p>sm.show({<br>&nbsp;&nbsp;&nbsp;&nbsp;
+model:'modal-lightbox',<br>&nbsp;&nbsp;&nbsp;&nbsp;
+title:'图片1',<br>&nbsp;&nbsp;&nbsp;&nbsp;
+param:{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg',<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  'onRequestReady':function(){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp; console.log('lightbox准备');<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; &nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; &nbsp; 'onRequestComplete':function(){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; console.log('lightbox完成');<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; &nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;
+},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+lightbox:{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; &nbsp; 'group':[<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; {'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg','title':'图片1'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; {'url':'https://img.alicdn.com/imgextra/i1/2180723028/
+    TB20UQIaFXXXXc5XXXXXXXXXXXX_!!2180723028.jpg','title':'图片2'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; {'url':'https://img.alicdn.com/imgextra/i3/2180723028/
+    TB2sKsIaFXXXXXrXpXXXXXXXXXX_!!2180723028.jpg','title':'图片3'},<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; {'url':'https://img.alicdn.com/imgextra/i1/2180723028/TB2f9UGaFXXXXXVXpXXXXXXXXXX_!!2180723028.jpg','title':'图片4'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; {'url':'https://img.alicdn.com/imgextra/i4/2180723028/
+    TB2KT3OaFXXXXXIXXXXXXXXXXXX_!!2180723028.jpg','title':'图片5'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; {'url':'https://img.alicdn.com/imgextra/i1/2180723028/
+    TB2ImMFaFXXXXaWXpXXXXXXXXXX_!!2180723028.jpg','title':'图片6'}<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; &nbsp; ],<br>&nbsp;&nbsp;&nbsp;&nbsp;
   'order':0<br>
-}) //显示<br> 
-sm.hide() //隐藏<br>
-sm.min(true) //最小化<br>
-sm.min() //切换最小化<br>
-sm.max(true) //最大化<br>
-sm.max() //切换最大化<br>
-sm.addButton(label,classe,shortcutKey,clickEvent) //添加按钮</p>
-<p><b>模态窗对外提供了10个自定义事件：</b>  </p>
+&nbsp;}) //显示</p>
+<p>sm.show({<br>
+&nbsp; &nbsp; title:'提示消息',<br>
+&nbsp; &nbsp; contents:'&lt;p&gt;欢迎您回来，现在将转入登录前页面&lt;/p&gt;\<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;a href=&quot;http://www.baidu.com&quot;&gt;如果您的浏览器没有自动跳转，请点击此链接&lt;/a&gt;&lt;/p&gt;'<br>
+});</p>
+<p><br>
+  sm.hide() //隐藏<br>
+  sm.min(true) //最小化<br>
+  sm.min() //切换最小化<br>
+  sm.max(true) //最大化<br>
+  sm.max() //切换最大化<br>
+  sm.addButton(label,classe,shortcutKey,clickEvent) //添加按钮</p>
+<p><b>模态窗对外提供了10个自定义事件：</b></p>
 <p>sm.on('show',function(){}) //模态框显示前<br> 
-  sm.on('shown',function(){}) //模态框显示后
-    <br>
-  sm.on('hide',function(){}) //模态框隐藏前
-  <br>
-  sm.on('hidden',function(){}) //模态框隐藏后
-  <br>
-  sm.on('minimize',function(){}) //模态框最小化前<br>
+sm.on('shown',function(){}) //模态框显示后<br>
+sm.on('hide',function(){}) //模态框隐藏前<br>
+sm.on('hidden',function(){}) //模态框隐藏后<br>
+sm.on('minimize',function(){}) //模态框最小化前<br>
 sm.on('minimized',function(){}) //模态框最小化后<br>
 sm.on('maximize',function(){}) //模态框最大化前<br>
 sm.on('maximized',function(){}) //模态框最大化后<br>
 sm.on('normalize',function(){}) //模态框标准化前<br>
 sm.on('normalized',function(){}) //模态框标准化后</p>
+</body>
+</html>
