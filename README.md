@@ -72,35 +72,32 @@
   };</p>
 <p><b>模态窗对外提供了7个方法：</b>  </p>
 <p>sm.show({<br>&nbsp;&nbsp;&nbsp;&nbsp;
-        model:'modal-lightbox',<br>&nbsp;&nbsp;&nbsp;&nbsp;
-        title:'图片1',<br>&nbsp;&nbsp;&nbsp;&nbsp;
-        param:{<br>&nbsp;&nbsp;&nbsp;&nbsp;
-          'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg',<br>&nbsp;&nbsp;&nbsp;&nbsp;
-          'onRequestReady':function(){<br>&nbsp;&nbsp;&nbsp;&nbsp;
-            console.log('lightbox准备');<br>&nbsp;&nbsp;&nbsp;&nbsp;
-          },<br>&nbsp;&nbsp;&nbsp;&nbsp;
-          'onRequestComplete':function(){<br>&nbsp;&nbsp;&nbsp;&nbsp;
-            console.log('lightbox完成');<br>&nbsp;&nbsp;&nbsp;&nbsp;
-          }<br>&nbsp;&nbsp;&nbsp;&nbsp;
-        },<br>&nbsp;&nbsp;&nbsp;&nbsp;
-        lightbox:{<br>&nbsp;&nbsp;&nbsp;&nbsp;
-          'group':[<br>&nbsp;&nbsp;&nbsp;&nbsp;
-            {'url':'https://img.alicdn.com/imgextra/i3/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg','title':'图片1'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
-            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB20UQIaFXXXXc5XXXXXXXXXXXX_!!2180723028.jpg','title':'图片2'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
-            {'url':'https://img.alicdn.com/imgextra/i3/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2sKsIaFXXXXXrXpXXXXXXXXXX_!!2180723028.jpg','title':'图片3'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
-            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2f9UGaFXXXXXVXpXXXXXXXXXX_!!2180723028.jpg','title':'图片4'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
-            {'url':'https://img.alicdn.com/imgextra/i4/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2KT3OaFXXXXXIXXXXXXXXXXXX_!!2180723028.jpg','title':'图片5'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
-            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2ImMFaFXXXXaWXpXXXXXXXXXX_!!2180723028.jpg','title':'图片6'}<br>&nbsp;&nbsp;&nbsp;&nbsp;
-          ],<br>&nbsp;&nbsp;&nbsp;&nbsp;
-          'order':0<br>&nbsp;&nbsp;&nbsp;&nbsp;
-        }) //显示<br> 
-  sm.hide() //隐藏
-    <br>
-  sm.min(true) //最小化
-  <br>
-  sm.min() //切换最小化
-  <br>
-  sm.max(true) //最大化<br>
+  model:'modal-lightbox',<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  title:'图片1',<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  param:{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg',<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    'onRequestReady':function(){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      console.log('lightbox准备');<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    },<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    'onRequestComplete':function(){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      console.log('lightbox完成');<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    }<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  },<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  lightbox:{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    'group':[<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      {'url':'https://img.alicdn.com/imgextra/i3/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg','title':'图片1'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB20UQIaFXXXXc5XXXXXXXXXXXX_!!2180723028.jpg','title':'图片2'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      {'url':'https://img.alicdn.com/imgextra/i3/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2sKsIaFXXXXXrXpXXXXXXXXXX_!!2180723028.jpg','title':'图片3'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2f9UGaFXXXXXVXpXXXXXXXXXX_!!2180723028.jpg','title':'图片4'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      {'url':'https://img.alicdn.com/imgextra/i4/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2KT3OaFXXXXXIXXXXXXXXXXXX_!!2180723028.jpg','title':'图片5'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2ImMFaFXXXXaWXpXXXXXXXXXX_!!2180723028.jpg','title':'图片6'}<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    ],<br>&nbsp;&nbsp;&nbsp;&nbsp;
+  'order':0<br>&nbsp;&nbsp;&nbsp;&nbsp;
+}) //显示<br> 
+sm.hide() //隐藏<br>
+sm.min(true) //最小化<br>
+sm.min() //切换最小化<br>
+sm.max(true) //最大化<br>
 sm.max() //切换最大化<br>
 sm.addButton(label,classe,shortcutKey,clickEvent) //添加按钮</p>
 <p><b>模态窗对外提供了10个自定义事件：</b>  </p>
