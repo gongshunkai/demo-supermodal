@@ -1,13 +1,4 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>无标题文档</title>
-</head>
-
-<body>
-<h2># demo-supermodal</h2>
+﻿<h2># demo-supermodal</h2>
 <p>模态窗 supermodal v2.0</p>
 <p>以 Bootstrap 为皮肤，基于jquery，最低支持IE8</p>
 <p><b>supermodal v2.0 演示地址：</b><a href="http://gongshunkai.github.io/demo/%E6%A8%A1%E6%80%81%E7%AA%97/demo-2.html">http://gongshunkai.github.io/demo/%E6%A8%A1%E6%80%81%E7%AA%97/demo-2.html</a></p>
@@ -165,5 +156,3 @@ sm.on('maximize',function(){}) //模态框最大化前<br>
 sm.on('maximized',function(){}) //模态框最大化后<br>
 sm.on('normalize',function(){}) //模态框标准化前<br>
 sm.on('normalized',function(){}) //模态框标准化后</p>
-</body>
-</html>
