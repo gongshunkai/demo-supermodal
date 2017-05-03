@@ -71,28 +71,28 @@
   onNormalized:null, //模态框已经标准化（并且同时在动画效果完成）之后被触发<br>
   };</p>
 <p><b>模态窗对外提供了7个方法：</b>  </p>
-<p>sm.show({
-        model:'modal-lightbox',
-        title:'图片1',
-        param:{
-          'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg',
-          'onRequestReady':function(){
-            console.log('lightbox准备');
-          },
-          'onRequestComplete':function(){
-            console.log('lightbox完成');
-          }
-        },
-        lightbox:{
-          'group':[
-            {'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg','title':'图片1'},
-            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/TB20UQIaFXXXXc5XXXXXXXXXXXX_!!2180723028.jpg','title':'图片2'},
-            {'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB2sKsIaFXXXXXrXpXXXXXXXXXX_!!2180723028.jpg','title':'图片3'},
-            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/TB2f9UGaFXXXXXVXpXXXXXXXXXX_!!2180723028.jpg','title':'图片4'},
-            {'url':'https://img.alicdn.com/imgextra/i4/2180723028/TB2KT3OaFXXXXXIXXXXXXXXXXXX_!!2180723028.jpg','title':'图片5'},
-            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/TB2ImMFaFXXXXaWXpXXXXXXXXXX_!!2180723028.jpg','title':'图片6'}
-          ],
-          'order':0
+<p>sm.show({<br>&nbsp;&nbsp;&nbsp;&nbsp;
+        model:'modal-lightbox',<br>&nbsp;&nbsp;&nbsp;&nbsp;
+        title:'图片1',<br>&nbsp;&nbsp;&nbsp;&nbsp;
+        param:{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg',<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          'onRequestReady':function(){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('lightbox准备');<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          },<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          'onRequestComplete':function(){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('lightbox完成');<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          }<br>&nbsp;&nbsp;&nbsp;&nbsp;
+        },<br>&nbsp;&nbsp;&nbsp;&nbsp;
+        lightbox:{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          'group':[<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            {'url':'https://img.alicdn.com/imgextra/i3/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg','title':'图片1'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB20UQIaFXXXXc5XXXXXXXXXXXX_!!2180723028.jpg','title':'图片2'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            {'url':'https://img.alicdn.com/imgextra/i3/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2sKsIaFXXXXXrXpXXXXXXXXXX_!!2180723028.jpg','title':'图片3'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2f9UGaFXXXXXVXpXXXXXXXXXX_!!2180723028.jpg','title':'图片4'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            {'url':'https://img.alicdn.com/imgextra/i4/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2KT3OaFXXXXXIXXXXXXXXXXXX_!!2180723028.jpg','title':'图片5'},<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/<br>&nbsp;&nbsp;&nbsp;&nbsp;TB2ImMFaFXXXXaWXpXXXXXXXXXX_!!2180723028.jpg','title':'图片6'}<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          ],<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          'order':0<br>&nbsp;&nbsp;&nbsp;&nbsp;
         }) //显示<br> 
   sm.hide() //隐藏
     <br>
