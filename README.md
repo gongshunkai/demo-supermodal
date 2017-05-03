@@ -71,7 +71,29 @@
   onNormalized:null, //模态框已经标准化（并且同时在动画效果完成）之后被触发<br>
   };</p>
 <p><b>模态窗对外提供了7个方法：</b>  </p>
-<p>sm.show() //显示<br> 
+<p>sm.show({
+        model:'modal-lightbox',
+        title:'图片1',
+        param:{
+          'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg',
+          'onRequestReady':function(){
+            console.log('lightbox准备');
+          },
+          'onRequestComplete':function(){
+            console.log('lightbox完成');
+          }
+        },
+        lightbox:{
+          'group':[
+            {'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB20GAGaFXXXXaIXpXXXXXXXXXX_!!2180723028.jpg','title':'图片1'},
+            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/TB20UQIaFXXXXc5XXXXXXXXXXXX_!!2180723028.jpg','title':'图片2'},
+            {'url':'https://img.alicdn.com/imgextra/i3/2180723028/TB2sKsIaFXXXXXrXpXXXXXXXXXX_!!2180723028.jpg','title':'图片3'},
+            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/TB2f9UGaFXXXXXVXpXXXXXXXXXX_!!2180723028.jpg','title':'图片4'},
+            {'url':'https://img.alicdn.com/imgextra/i4/2180723028/TB2KT3OaFXXXXXIXXXXXXXXXXXX_!!2180723028.jpg','title':'图片5'},
+            {'url':'https://img.alicdn.com/imgextra/i1/2180723028/TB2ImMFaFXXXXaWXpXXXXXXXXXX_!!2180723028.jpg','title':'图片6'}
+          ],
+          'order':0
+        }) //显示<br> 
   sm.hide() //隐藏
     <br>
   sm.min(true) //最小化
