@@ -58,6 +58,11 @@ var Event = {
 //全局自定义事件集合clients将拷贝到SuperModal的属性clients上面
 //
 
+//固定位置
+Event.on('__DISPLAY__',function(){
+	this.__opts__.fixed && this.target.css('position','fixed');
+});
+
 //动画速度
 Event.on('__DISPLAY__',function(){
 	this.__opts__.speed = this.__opts__.show ? 0 : 'slow';
@@ -126,6 +131,7 @@ Event.on('__DISPLAY__',function(){
 	this.__layers__['modal-footer'] = new Layer(this,this.target.find('.modal-footer'),this.__opts__);
 });
 
+//把对话框对象添加到对话框管理
 Event.on('__DISPLAY__',function(){
 	manage.add(this.__layers__['modal']);
 });

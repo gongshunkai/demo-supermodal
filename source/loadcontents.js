@@ -120,6 +120,7 @@ LoadContents.prototype.lightbox = function(){
 			modalBody.height('auto').append($(this));
 			height = modalBody.outerHeight(true);
 
+			//重新设置模态框高度
 			supermodal.setSize(undefined,'auto');
 			var size = supermodal.getSize();
 			supermodal.setSize(size.w,size.h);

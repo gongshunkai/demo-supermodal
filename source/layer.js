@@ -271,8 +271,8 @@ Modal.prototype.__setSize__ = function(){
 		var w = node.outerHeight(true),
 			h = node.outerHeight(true);
 
-		this.__opts__.w = this.__opts__.width === 'auto' ? w : this.__opts__.width;
-		this.__opts__.h = this.__opts__.height === 'auto' ? h : this.__opts__.height;
+		this.__opts__.w = node.width(this.__opts__.width).width();
+		this.__opts__.h = node.height(this.__opts__.height).height();
 
 		var bodyHeight = node.find('.modal-body').height();
 

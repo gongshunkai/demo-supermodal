@@ -1,5 +1,4 @@
-//头部双击最大化
-//拖动遮罩层
+/*********************** 对话框类 *******************************/
 
 var Dialog = function(){
 	this.__init__.apply(this,arguments);
@@ -35,13 +34,16 @@ $.extend(Dialog.prototype,Event,{
 		//防止重复创建
 		opts.draw = opts.draw == undefined ? true : opts.draw;
 
+		//防止重复创建
 		this.__opts__.draw = true;
 
+		//设置id
 		this.__opts__.id = this.__opts__.id || Dialog.getTimeTick();
 
 		//渲染模态框
 		var appendWindow = this.__drawWindow__(opts);
 
+		//触发自定义事件
 		this.fire('__DISPLAY__',opts);
 
 		//切换不同的模式
@@ -163,11 +165,10 @@ Dialog.getTimeTick = function(){
 Dialog.defaults = {
 	width:         600, //模态框宽度
 	height:        300, //模态框高度
-	zindex:        9999,
+	zindex:        9999, //层级
 	position: '5', //窗体初始位置 1-左上角 2-中上 3-右上角 4-左中 5-居中 6-右中 7-左下角 8-中下 9-右下角 'custom'-自定义
 	leftX: 0, //自定义位置 x
 	topY: 0, //自定义位置 y
-	loading:       '正在加载，请稍候...',
 	iconType: '', //'warning','confirm','question','error','info'
 	autoClose:     false, //是否自动关闭
 	autoMin:     false, //是否自动最小化
@@ -190,13 +191,13 @@ Dialog.defaults = {
     backdrop:      true, //是否遮罩
     btn_ok:        '确定', // Label
     btn_cancel:    '取消', // Label
-    btn_close:     '关闭',
+    btn_close:     '关闭', // Label
     btn_close_type: 'img', //关闭按钮类型样式 'img','text'
-    btn_ok_shortcutKey:null,
-    btn_cancel_shortcutKey:null,
-    btn_close_shortcutKey:null,
-    btn_min_shortcutKey:null,
-    btn_max_shortcutKey:null,
+    btn_ok_shortcutKey:null, //确定按钮快捷键
+    btn_cancel_shortcutKey:null, //取消按钮快捷键
+    btn_close_shortcutKey:null, //关闭按钮快捷键
+    btn_min_shortcutKey:null, //最小化按钮快捷键
+    btn_max_shortcutKey:null, //最大化按钮快捷键
     skinClassName: null, //皮肤样式名
     callback:null, //确认框回调函数
 
@@ -208,21 +209,14 @@ Dialog.defaults = {
 	mxTop: 0, //上边限制
 	mxBottom: 9999, //下边限制
 	mxContainer: $(window), //指定限制在容器内
-	dragAnchor: 200, //当窗体被拖离200px时，锚定拖动位置作为窗体起始位置
-	anchor: false, //窗体是否被锚定
 	fixed: true, //是否固定位置
 	lockX: false, //是否锁定水平方向拖放
 	lockY: false, //是否锁定垂直方向拖放
 	lock: false, //是否锁屏
-	topMost: false, //是否允许显示在其它窗体最上面
-	topMostType: 1, //顶层窗体交换方式：1-冒泡排序，2-直接交换
-	build: 'new', //当存在重复的ID时重建新的窗体 'new','rebuild','refurbish','append','show'
-	reload: true, //是否重新加载内容，若不需要重新加载内容 reload:false 与 build:'show' 组合使用
-	memory: false, //是否记录上次的位置
-	dlgEvent: {  //事件代理
+	topMost: true, //是否允许显示在其它窗体最上面
+	dlgEvent: {  //拖拽事件代理
 		'onStart':null,'onMove':null,'onStop':null
-	},
-		
+	},		
     onShow:    null, //模态框显示前立即触发该事件
     onShown:     null, //模态框已经显示出来（并且同时在动画效果完成）之后被触发
     onHide:    null, //模态框隐藏前立即触发该事件
@@ -323,7 +317,7 @@ Dialog.prototype.__initAllLayers__ = function(){
 
 //是否最小化
 Dialog.prototype.__isMinimize__ = function(){
-	return this.target.find('.modal-dialog').hasClass('minimize');
+	return this.target.find('.modal-body').is(':hidden') && this.target.find('.modal-footer').is(':hidden');
 };
 
 //最小化
@@ -379,7 +373,9 @@ Dialog.prototype.__maximize__ = (function(){
 	var isMax = false, //是否最大化标识
 		lastSize = {}, //缓存模态窗尺寸
 		lastPos = {}, //缓存模态窗位置
-		lastBodyHeight;//缓存主体高度
+		lastBodyHeight, //缓存主体高度
+		normalModalHeight, //标准化模态框高度
+		maxBodyHeight; //最大化主体高度
 
 	return function(mode){
 
@@ -392,11 +388,11 @@ Dialog.prototype.__maximize__ = (function(){
 			//保存主体高度
 			lastBodyHeight = this.getBodyHeight();
 
-			//获取最大化主体高度
-			var maxBodyHeight = this.__getMaxBodyHeight__();
+			//获取标准化模态框高度
+			normalModalHeight = this.__getNormalModalHeight__();
 
-			//是否最小化
-			var isMin = this.__isMinimize__();
+			//获取最大化主体高度
+			maxBodyHeight = this.__getMaxBodyHeight__();
 
 			//设置最大化窗口resize事件
 			this.__setMaxResize__();
@@ -404,7 +400,7 @@ Dialog.prototype.__maximize__ = (function(){
 			this.fire('maximize');
 
 			//设置尺寸和位置
-			this.__animateModal__({'width':$(window).width(),'height':isMin ? lastSize.h : $(window).height(),'top':0,'left':0},function(){
+			this.__animateModal__({'width':$(window).width(),'height':this.__isMinimize__() ? lastSize.h : $(window).height(),'top':0,'left':0},function(){
 				this.fire('maximized');
 			}.bind(this));
 			this.__animateBody__({'height':maxBodyHeight});
@@ -417,14 +413,10 @@ Dialog.prototype.__maximize__ = (function(){
 			this.fire('normalize','maximize');
 
 			//还原尺寸和位置
-			this.__animateModal__({'width':lastSize.w,'height':'auto','left':lastPos.x,'top':lastPos.y},function(){
+			this.__animateModal__({'width':lastSize.w,'height':this.__isMinimize__() ? lastSize.h : normalModalHeight,'left':lastPos.x,'top':lastPos.y},function(){
 				this.fire('normalized','maximize');
 			}.bind(this));
-			this.__animateBody__({'height':lastBodyHeight},function(){
-				this.setSize(lastSize.w,'auto');
-				var size = this.getSize();
-				this.setSize(size.w,size.h);
-			}.bind(this));
+			this.__animateBody__({'height':lastBodyHeight});
 
 		}
 
@@ -513,6 +505,23 @@ Dialog.prototype.__showFooter__ = function(){
 	this.__layers__['modal-footer'].show();
 };
 
+//获取标准化模态框高度
+Dialog.prototype.__getNormalModalHeight__ = function(){
+
+	var height = 0;
+
+	Layer.cloneNode.call(this.__layers__['modal'],function(node){
+
+		node.find('.modal-body').show();
+		node.find('.modal-footer').show();
+		height = node.height('auto').outerHeight(true);
+
+	});
+
+	return height;
+
+};
+
 //获取最大化主体高度
 Dialog.prototype.__getMaxBodyHeight__ = function(){
 
@@ -548,7 +557,13 @@ Dialog.prototype.__slideDownFooter__ = function(){
 
 //主体向上滑动
 Dialog.prototype.__slideUpBody__ = function(callback){
-	this.__layers__['modal-body'].slideUp(this.__opts__.speed,callback);
+
+	var func = function(){
+		this.setSize(undefined,this.getSize().h);
+		callback && callback();
+	}.bind(this);
+
+	this.__layers__['modal-body'].slideUp(this.__opts__.speed,func);
 };
 
 //底部向上滑动
@@ -558,7 +573,13 @@ Dialog.prototype.__slideUpFooter__ = function(){
 
 //模态窗动画
 Dialog.prototype.__animateModal__ = function(params,callback){
-	this.__layers__['modal'].animate(params,this.__opts__.speed,callback);
+
+	var func = function(){
+		this.setSize(params.width,params.height);
+		callback && callback();
+	}.bind(this);
+
+	this.__layers__['modal'].animate(params,this.__opts__.speed,func);
 };
 
 //主体动画
@@ -595,6 +616,7 @@ Dialog.prototype.__loadContents__ = function(params){
 
 	}
 
+	//执行方法
 	loadContentFn.call(loadContents);
 	
 };
@@ -639,6 +661,7 @@ Dialog.prototype.setBodyHeight = function(h){
 	this.__layers__['modal-body'].setSize(undefined,h);
 };
 
+//添加listbox的左右箭头
 Dialog.prototype.addArrows = function(){
 
 	var supermodal = this,
