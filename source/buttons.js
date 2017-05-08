@@ -48,7 +48,7 @@ BaseButtons.prototype = {
 	injectAllButtons:function(){
 		this.__buttons__.forEach(function(e){
 			this.__container__.append(e);
-		}.bind(this));
+		},this);
 	}
 };
 
@@ -76,7 +76,7 @@ $.extend(FooterButtons.prototype,BaseButtons.prototype);
 HeaderButtons.prototype.injectAllButtons = function(){
 	this.__buttons__.forEach(function(e){
 		this.__container__.prepend(e);
-	}.bind(this));
+	},this);
 };
 
 
